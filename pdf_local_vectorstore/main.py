@@ -31,6 +31,8 @@ if __name__ == "__main__":
     vectorstore.save_local("faiss_learn_python")
     new_vectorstore = FAISS.load_local("faiss_learn_python", embeddings)
 
+    query=input("Put in your query here: ")
+
     # Use chain to
     # 1. Embed our query into a vector
     # 2. Send to our vector store and find similar vectors
@@ -38,5 +40,5 @@ if __name__ == "__main__":
     qa = RetrievalQA.from_chain_type(
         llm=OpenAI(), chain_type="stuff", retriever=new_vectorstore.as_retriever()
     )
-    res = qa.run("Tell me why Python is a good programming language")
+    res = qa.run(query)
     print(res)
