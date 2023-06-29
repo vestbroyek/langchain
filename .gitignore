@@ -2,3 +2,5 @@
 .DS_Store
 
 .vscode/launch.json
+
+docs_assistant/rtdocs
